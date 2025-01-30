@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Git') {
             steps {
-                git 'https://github.com/BThangaraju/Jenkins.git'
+                git 'https://github.com/mohit2808/Jenkins.git'
             }
         }
         stage('Build Code') {
@@ -14,14 +14,9 @@ pipeline {
         }
      stage('Test Code') {
             steps {
-                sh "chmod u+x Tes.py"
+                sh "chmod u+x Test.py"
                 sh "./Test.py"
             }
         }
     } 
 }
-stage('Ansible Deployment') {
-             steps {
-                    ansible-playbook installation: 'Ansible', playbook: 'deploy-playbook.yml'
-             }
-         }
